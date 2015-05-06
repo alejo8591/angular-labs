@@ -9,7 +9,7 @@
 	<div ng-controller="controller_one">
 		<h1>Names</h1>
 		<ul>
-			<li ng-repeat="names in simple_names">{{ names }}</li>
+			<li ng-repeat="names in simple_names">{{ names | uppercase }}</li>
 		</ul>
 
 		<h1>Heroes</h1>
@@ -51,8 +51,7 @@
                     lastname: "Rome"
                 }
             ];
-	       }])
-		
+	       }]);
 	</script>
 </body>
 </html>

@@ -7,13 +7,15 @@
 </head>
 <body>
     <div ng-controller="controller_one">
+
         <button ng-click="simple_click()">Clic</button>
 
         <button ng-dblclick="doubleClick()">Doble Clic</button>
 
         <img src="http://dummyimage.com/600x400/000/fff" alt="img" ng-mouseleave="outMouseImg()" ng-mouseenter="onMouseImg()" />
+        <br />
 
-        {{ event_click }}
+        {{ event_click | uppercase }}
     </div>
 	
 	
