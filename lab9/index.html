@@ -12,15 +12,13 @@
 
             <img alt="" ng-src="{{ actual_image }}">
 
-
             <button ng-click="revealImage('http://dummyimage.com/200x200/ff3300/333')">Imagen 1</button>
 
             <button ng-click="revealImage('http://dummyimage.com/200x200/000/ffea00')">Imagen 2</button>
 
         </div>
     </div>
-    
-	
+
 	<script type="text/javascript">
 
         angular.module('changeImage', [])
@@ -31,7 +29,6 @@
                         $scope.actual_image = _images;
                     };
                }]);
-	
 	</script>
 </body>
 </html>
