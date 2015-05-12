@@ -11,9 +11,13 @@
     <div ng-include src=" 'includes/header.html' "></div>
     <div ng-include src=" 'includes/menu.html' "></div>
 
+   <button id="revealButton">Ver info</button>
 
     <script>
-        var my_app = angular.module('initial_spi', []);
+        angular.module('initial_spi', [])
+        .controller('controllerOne', function($scope){
+           $scope.revealButton = true;
+        });
     </script>
 </body>
 </html>
