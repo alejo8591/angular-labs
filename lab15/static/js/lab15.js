@@ -11,7 +11,11 @@ angular.module('CustomerList', ['ngCookies'])
                 'X-CSRFToken': $cookies['csrftoken']
             }
         }).success(function(data){
-            console.log(data);
+
+            $scope.customers = data;
+
+            console.log(data[0].customer_name);
+
         }).error(function(error){
             console.log(error);
         });

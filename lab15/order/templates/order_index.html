@@ -15,7 +15,7 @@
     	{% if orders %}
     		<ul>
     		{% for order in orders %}
-    			<li>{{ order.order_customer_id }} tiene una orden con #{{ order.id }}  <a href="{% url 'order' order.id %}">Ver Detalle</a></li> 
+    			<li>{{ order.order_customer_id }} tiene una orden con #{{ order.id }}  <a href="{% url 'order' order.id %}">Ver Detalle</a></li>
     		{% endfor %}
             </ul>
         {% else %}
@@ -33,7 +33,11 @@
 
         <div>
             <a href="#" id="customer_list_button" ng-click="customer_list_button()">Traer lista de clientes</a>
-            <ul id="customer_list"></ul>
+            <ul id="customer_list">
+                <li ng-repeat="customer in customers">
+                    {{ customer }}
+                </li>
+            </ul>
         </div>
 
     {% else %}
