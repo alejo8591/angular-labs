@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <script src="{% static "js/angular.min.js"%}"></script>
+    <script src="{% static "js/angular-cookies.min.js"%}"></script>
+    <script src="{% static "js/lab15.js"%}"></script>
+</head>
+<body  data-ng-app="CustomerList" data-ng-controller="CustomerListController">
+    {% if user.is_authenticated %}
+        <a href="{% url 'user_logout' %}">Cerrar Sesión</a>
+    	<h1>{{ title }}</h1>
+    	{% if orders %}
+    		<ul>
+    		{% for order in orders %}
+    			<li>{{ order.order_customer_id }} tiene una orden con #{{ order.id }}  <a href="{% url 'order' order.id %}">Ver Detalle</a></li> 
+    		{% endfor %}
+            </ul>
+        {% else %}
+        	<h3>No hay Ordenes en el Sistema</h3>
+        {% endif %}
+
+        <h2>Menú de Opciones</h2>
+        <a href="{% url 'add_customer' %}">Crear Cliente</a>
+        <a href="{% url 'add_product' %}">Crear Producto</a>
+        <a href="{% url 'add_order' %}">Crear Orden</a><br />
+        <h2>Menú de Listados</h2>
+        <a href="{% url 'customer_list' %}">Lista de Clientes</a>
+        <a href="{% url 'product_list' %}">Lista de Productos</a>
+        <a href="{% url 'order_index' %}">Lista de Ordenes</a><br />
+
+        <div>
+            <a href="#" id="customer_list_button" ng-click="customer_list_button()">Traer lista de clientes</a>
+            <ul id="customer_list"></ul>
+        </div>
+
+    {% else %}
+        <a href="{% url 'login' %}">Ingresar</a>
+        <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+</body>
+</html>
